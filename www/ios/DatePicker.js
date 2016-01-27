@@ -44,7 +44,8 @@ DatePicker.prototype.show = function(options, cb) {
     var formatDate = function(date){
       // date/minDate/maxDate will be string at second time
       if (!(date instanceof Date)) {
-        date = new Date(date)
+         var arr = date.split(/[- :T]/)
+         var date = new Date(arr[2], arr[0]-1, arr[1], 0, 0, 0);
       }
       date = date.getFullYear()
             + "-"
